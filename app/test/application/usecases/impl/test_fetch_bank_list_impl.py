@@ -2,7 +2,7 @@ from unittest.mock import Mock
 
 import pytest
 
-from src.application.usecases.impl.fetch_bank_list_impl import FetchBankListUseCaseImpl
+from src.application.usecases.impl.create_payment_use_case_impl import CreatePaymentUseCaseImpl
 
 
 def test_secret_client_raises_exception():
@@ -13,7 +13,7 @@ def test_secret_client_raises_exception():
     bank_client = Mock()
     storage_client = Mock()
 
-    sut = FetchBankListUseCaseImpl(logger, secret_client, authorization_client, bank_client, storage_client)
+    sut = CreatePaymentUseCaseImpl(logger, secret_client, authorization_client, bank_client, storage_client)
 
     with pytest.raises(Exception):
         sut.execute("fake_correlation_id", "fake_flow_id")
@@ -32,7 +32,7 @@ def test_authorization_client_raises_exception():
     bank_client = Mock()
     storage_client = Mock()
 
-    sut = FetchBankListUseCaseImpl(logger, secret_client, authorization_client, bank_client, storage_client)
+    sut = CreatePaymentUseCaseImpl(logger, secret_client, authorization_client, bank_client, storage_client)
 
     with pytest.raises(Exception):
         sut.execute("fake_correlation_id", "fake_flow_id")
@@ -51,7 +51,7 @@ def test_bank_client_raises_exception():
     bank_client.list_banks.side_effect = Exception("Test Exception")
     storage_client = Mock()
 
-    sut = FetchBankListUseCaseImpl(logger, secret_client, authorization_client, bank_client, storage_client)
+    sut = CreatePaymentUseCaseImpl(logger, secret_client, authorization_client, bank_client, storage_client)
 
     with pytest.raises(Exception):
         sut.execute("fake_correlation_id", "fake_flow_id")
@@ -70,7 +70,7 @@ def test_storage_client_raises_exception():
     storage_client = Mock()
     storage_client.save_data.side_effect = Exception("Test Exception")
 
-    sut = FetchBankListUseCaseImpl(logger, secret_client, authorization_client, bank_client, storage_client)
+    sut = CreatePaymentUseCaseImpl(logger, secret_client, authorization_client, bank_client, storage_client)
 
     with pytest.raises(Exception):
         sut.execute("fake_correlation_id", "fake_flow_id")

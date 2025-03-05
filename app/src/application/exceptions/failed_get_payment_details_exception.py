@@ -3,11 +3,11 @@ from http import HTTPStatus
 from src.application.enums.application_code import ApplicationCode
 
 
-class FailedListBanksException(Exception):
+class FailedGetPaymentDetailsException(Exception):
     def __init__(
             self,
-            code: ApplicationCode = ApplicationCode.BL_LIST_BANKS_FAILURE,
-            message: str = "Failed to get the list of banks",
+            code: ApplicationCode = ApplicationCode.LAMBDA_GET_PAYMENT_DETAILS_FAILURE,
+            message: str = "Failed to get payment details",
             status_code: int = HTTPStatus.INTERNAL_SERVER_ERROR,
     ):
         self.code = code

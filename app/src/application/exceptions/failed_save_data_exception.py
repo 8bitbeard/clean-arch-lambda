@@ -3,11 +3,11 @@ from http import HTTPStatus
 from src.application.enums.application_code import ApplicationCode
 
 
-class FailedSaveDataException(Exception):
+class FailedWriteFileException(Exception):
     def __init__(
             self,
-            code: ApplicationCode = ApplicationCode.BL_STORAGE_FAILURE,
-            message: str = "Failed to save bank data on storage",
+            code: ApplicationCode = ApplicationCode.LAMBDA_WRITE_FILE_FAILURE,
+            message: str = "Failed to write files",
             status_code: int = HTTPStatus.INTERNAL_SERVER_ERROR,
     ):
         self.code = code

@@ -6,7 +6,7 @@ from src.application.enums.application_code import ApplicationCode
 class FailedGetTokenException(Exception):
     def __init__(
             self,
-            code: ApplicationCode = ApplicationCode.BL_TOKEN_FAILURE,
+            code: ApplicationCode = ApplicationCode.LAMBDA_TOKEN_FAILURE,
             message: str = "Failed to get authorization token",
             status_code: int = HTTPStatus.INTERNAL_SERVER_ERROR,
     ):

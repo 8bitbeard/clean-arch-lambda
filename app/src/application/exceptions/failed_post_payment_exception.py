@@ -3,11 +3,11 @@ from http import HTTPStatus
 from src.application.enums.application_code import ApplicationCode
 
 
-class FailedGetSecretException(Exception):
+class FailedPostPaymentException(Exception):
     def __init__(
             self,
-            code: ApplicationCode = ApplicationCode.LAMBDA_SECRET_FAILURE,
-            message: str = "Failed to get secrets",
+            code: ApplicationCode = ApplicationCode.LAMBDA_POST_PAYMENT_FAILURE,
+            message: str = "Failed to post payment",
             status_code: int = HTTPStatus.INTERNAL_SERVER_ERROR,
     ):
         self.code = code

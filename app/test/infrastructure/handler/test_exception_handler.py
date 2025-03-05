@@ -4,7 +4,7 @@ from unittest.mock import Mock
 from src.application.enums.application_code import ApplicationCode
 from src.application.exceptions.failed_get_secret_exception import FailedGetSecretException
 from src.application.exceptions.failed_get_token_exception import FailedGetTokenException
-from src.application.exceptions.failed_list_banks_exception import FailedListBanksException
+from src.application.exceptions.failed_post_payment_exception import FailedPostPaymentException
 from src.application.exceptions.failed_save_data_exception import FailedSaveDataException
 from src.infrastructure.entrypoint.dto.lambda_response_dto import LambdaResponseDTO, ErrorDTO, BodyDTO
 from src.infrastructure.entrypoint.handler.exception_handler import exception_handler
@@ -84,10 +84,10 @@ def test_exception_handler_failed_list_banks_exceptions():
     mock_context = Mock()
 
     def sample_function(event, context):
-        raise FailedListBanksException()
+        raise FailedPostPaymentException()
 
     decorated_func = exception_handler(logger)(sample_function)
-    mock_exception = FailedListBanksException()
+    mock_exception = FailedPostPaymentException()
 
     result = decorated_func(mock_event, mock_context)
 

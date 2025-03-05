@@ -3,9 +3,9 @@ from unittest.mock import patch, Mock
 import pytest
 from requests.exceptions import HTTPError
 
-from src.application.exceptions.failed_list_banks_exception import FailedListBanksException
+from src.application.exceptions.failed_post_payment_exception import FailedPostPaymentException
 from src.infrastructure.clients.dto.list_banks_response_dto import ListBanksResponseDTO
-from src.infrastructure.clients.impl.bank_client_impl import BankClientImpl
+from src.infrastructure.clients.impl.bank_client_impl import PaymentClientImpl
 
 
 def test_list_banks_successful(
@@ -27,7 +27,7 @@ def test_list_banks_successful(
     with patch('requests.get') as mock_get:
         mock_get.return_value = mock_response
 
-        result = fixture_bank_client.list_banks(
+        result = fixture_bank_client.post_payment(
             "fake_access_token", "fake_app_id", "fake_correlation_id", "fake_flow_id"
         )
 
@@ -58,8 +58,8 @@ def test_list_banks_http_error(
     with patch('requests.get') as mock_get:
         mock_get.return_value = mock_response
 
-        with pytest.raises(FailedListBanksException):
-            fixture_bank_client.list_banks(
+        with pytest.raises(FailedPostPaymentException):
+            fixture_bank_client.post_payment(
                 "fake_access_token", "fake_app_id", "fake_correlation_id", "fake_flow_id"
             )
 
@@ -96,8 +96,8 @@ def test_list_banks_json_validation_error(
         mock_get.return_value = mock_response
         mock_validate.side_effect = ValueError("Validation error")
 
-        with pytest.raises(FailedListBanksException):
-            fixture_bank_client.list_banks(
+        with pytest.raises(FailedPostPaymentException):
+            fixture_bank_client.post_payment(
                 "fake_access_token", "fake_app_id", "fake_correlation_id", "fake_flow_id"
             )
 
@@ -115,12 +115,12 @@ def test_list_banks_missing_base_url(
     with pytest.MonkeyPatch.context() as mp:
         logger = Mock()
         mp.delenv("BANK_LIST_BASE_URL", raising=False)
-        bank_client = BankClientImpl(logger)
+        bank_client = PaymentClientImpl(logger)
 
         with patch('requests.get') as mock_get:
             mock_get.return_value = Mock(status_code=200)
-            with pytest.raises(FailedListBanksException):
-                bank_client.list_banks(
+            with pytest.raises(FailedPostPaymentException):
+                bank_client.post_payment(
                     "fake_access_token", "fake_app_id", "fake_correlation_id", "fake_flow_id"
                 )
             mock_get.assert_called_once()

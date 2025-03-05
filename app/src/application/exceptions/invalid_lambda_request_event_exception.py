@@ -3,12 +3,12 @@ from http import HTTPStatus
 from src.application.enums.application_code import ApplicationCode
 
 
-class FailedGetSecretException(Exception):
+class InvalidLambdaRequestEventException(Exception):
     def __init__(
             self,
-            code: ApplicationCode = ApplicationCode.LAMBDA_SECRET_FAILURE,
-            message: str = "Failed to get secrets",
-            status_code: int = HTTPStatus.INTERNAL_SERVER_ERROR,
+            code: ApplicationCode = ApplicationCode.LAMBDA_BAD_REQUEST_ERROR,
+            message: str = "Invalid lambda request event",
+            status_code: int = HTTPStatus.BAD_REQUEST,
     ):
         self.code = code
         self.message = message

@@ -17,7 +17,7 @@ class AuthorizationClientImpl(AuthorizationClientInterface):
         self.__logger = logger
         self.__base_url = os.environ.get("AUTHORIZATION_CLIENT_BASE_URL")
 
-    def get_token(self, secret: SecretDTO) -> str:
+    def get_token(self, secret: SecretDTO, certificate_file: str, private_key_file: str) -> str:
         headers = {
             "Content-Type": "application/json"
         }
@@ -26,7 +26,7 @@ class AuthorizationClientImpl(AuthorizationClientInterface):
             response = requests.get(
                 url=f"{self.__base_url}{self.TOKEN_URL}",
                 headers=headers,
-                verify=False,
+                cert=(certificate_file, private_key_file),
             )
 
             response.raise_for_status()

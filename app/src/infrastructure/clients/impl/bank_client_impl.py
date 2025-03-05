@@ -3,9 +3,9 @@ import os
 import requests
 from pydantic.v1 import ValidationError
 
-from src.application.clients.interface.bank_client_interface import BankClientInterface
-from src.application.exceptions.failed_list_banks_exception import (
-    FailedListBanksException,
+from src.application.clients.interface.payment_client_interface import PaymentClientInterface
+from src.application.exceptions.failed_post_payment_exception import (
+    FailedPostPaymentException,
 )
 from src.application.logging.logger_interface import LoggerInterface
 from src.infrastructure.clients.dto.list_banks_response_dto import (
@@ -13,14 +13,14 @@ from src.infrastructure.clients.dto.list_banks_response_dto import (
 )
 
 
-class BankClientImpl(BankClientInterface):
+class PaymentClientImpl(PaymentClientInterface):
     LIST_BANKS_URL = "/institutions"
 
     def __init__(self, logger: LoggerInterface):
         self.__logger = logger
         self.__base_url = os.environ.get("BANK_LIST_BASE_URL")
 
-    def list_banks(
+    def post_payment(
             self, access_token: str, app_id: str, correlation_id: str, flow_id: str
     ):
         headers = {
@@ -46,4 +46,4 @@ class BankClientImpl(BankClientInterface):
                 f"[BankClientImpl] Error fetching bank list. URL: {self.__base_url}{self.LIST_BANKS_URL}, "
                 f"Headers: {headers}, Exception: {ex}"
             )
-            raise FailedListBanksException
+            raise FailedPostPaymentException

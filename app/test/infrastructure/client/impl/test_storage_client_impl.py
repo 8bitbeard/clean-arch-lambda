@@ -23,7 +23,7 @@ def test_save_data_successful(
     mock_boto3_client.return_value = mock_s3_client
     mock_mapper.return_value = mock_request_dto
 
-    fixture_storage_client.save_data(mock_metadata, mock_bank_list)
+    fixture_storage_client.write_certificate_file(mock_metadata, mock_bank_list)
 
     mock_boto3_client.assert_called_once_with('s3')
     mock_mapper.assert_called_once_with(mock_metadata, mock_bank_list)
@@ -58,7 +58,7 @@ def test_save_data_client_error(
     mock_mapper.return_value = mock_request_dto
 
     with pytest.raises(FailedSaveDataException):
-        fixture_storage_client.save_data(mock_metadata, mock_bank_list)
+        fixture_storage_client.write_certificate_file(mock_metadata, mock_bank_list)
 
     mock_boto3_client.assert_called_once_with('s3')
     mock_mapper.assert_called_once_with(mock_metadata, mock_bank_list)
@@ -88,7 +88,7 @@ def test_save_data_mapper_error(
     mock_bank_list = [fixture_bank_model]
 
     with pytest.raises(FailedSaveDataException):
-        fixture_storage_client.save_data(mock_metadata, mock_bank_list)
+        fixture_storage_client.write_certificate_file(mock_metadata, mock_bank_list)
 
     mock_mapper.assert_called_once_with(mock_metadata, mock_bank_list)
     mock_boto3_client.assert_not_called()

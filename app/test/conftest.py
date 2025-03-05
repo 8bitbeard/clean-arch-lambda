@@ -6,9 +6,9 @@ from src.application.clients.dto.secret_dto import SecretDTO
 from src.domain.models.bank_model import BankModel
 from src.domain.models.metadata_model import MetadataModel
 from src.infrastructure.clients.impl.authorization_client_impl import AuthorizationClientImpl
-from src.infrastructure.clients.impl.bank_client_impl import BankClientImpl
+from src.infrastructure.clients.impl.bank_client_impl import PaymentClientImpl
 from src.infrastructure.clients.impl.secret_client_impl import SecretClientImpl
-from src.infrastructure.clients.impl.storage_client_impl import StorageClientImpl
+from src.infrastructure.clients.impl.storage_client_impl import FileWriterImpl
 
 
 @pytest.fixture
@@ -24,7 +24,7 @@ def fixture_bank_client():
     with patch('os.environ.get') as mock_env:
         logger = Mock()
         mock_env.return_value = "https://test-banks.com"
-        return BankClientImpl(logger)
+        return PaymentClientImpl(logger)
 
 
 @pytest.fixture
@@ -36,7 +36,7 @@ def fixture_secret_client():
 @pytest.fixture
 def fixture_storage_client():
     logger = Mock()
-    return StorageClientImpl(logger)
+    return FileWriterImpl(logger)
 
 
 @pytest.fixture()

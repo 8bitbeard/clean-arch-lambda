@@ -1,7 +1,7 @@
 from unittest.mock import patch, Mock, MagicMock
 
 from src.application.exceptions.failed_get_secret_exception import FailedGetSecretException
-from src.application.usecases.impl.fetch_bank_list_impl import FetchBankListUseCaseImpl
+from src.application.usecases.impl.create_payment_use_case_impl import CreatePaymentUseCaseImpl
 from src.infrastructure.entrypoint.dto.lambda_response_dto import LambdaResponseDTO, BodyDTO, DataDTO, ErrorDTO
 from src.infrastructure.entrypoint.lambda_function import inject_dependencies, lambda_handler
 
@@ -28,7 +28,7 @@ def test_inject_dependencies(
 @patch('src.infrastructure.entrypoint.lambda_function.inject_dependencies')
 @patch('src.infrastructure.entrypoint.lambda_function.exception_handler')
 def test_lambda_handler_success(mock_exception_handler, mock_inject, mock_env, mock_uuid):
-    mock_fetch_bank_list_use_case = MagicMock(spec=FetchBankListUseCaseImpl)
+    mock_fetch_bank_list_use_case = MagicMock(spec=CreatePaymentUseCaseImpl)
 
     mock_uuid.side_effect = ["corr_id", "flow_id"]
     mock_env.return_value = "test_flow_id"
@@ -56,7 +56,7 @@ def test_lambda_handler_success(mock_exception_handler, mock_inject, mock_env, m
 @patch('src.infrastructure.entrypoint.lambda_function.inject_dependencies')
 @patch('src.infrastructure.entrypoint.lambda_function.exception_handler')
 def test_lambda_handler_with_exception(mock_exception_handler, mock_inject, mock_env, mock_uuid):
-    mock_fetch_bank_list_use_case = MagicMock(spec=FetchBankListUseCaseImpl)
+    mock_fetch_bank_list_use_case = MagicMock(spec=CreatePaymentUseCaseImpl)
 
     mock_uuid.return_value = "corr_id"
     mock_env.return_value = "test_flow_id"
@@ -83,7 +83,7 @@ def test_lambda_handler_with_exception(mock_exception_handler, mock_inject, mock
 @patch('src.infrastructure.entrypoint.lambda_function.inject_dependencies')
 @patch('src.infrastructure.entrypoint.lambda_function.exception_handler')
 def test_lambda_handler_missing_flow_id(mock_exception_handler, mock_inject, mock_uuid):
-    mock_fetch_bank_list_use_case = MagicMock(spec=FetchBankListUseCaseImpl)
+    mock_fetch_bank_list_use_case = MagicMock(spec=CreatePaymentUseCaseImpl)
 
     mock_uuid.side_effect = ["corr_id", "flow_id"]
     mock_inject.return_value = mock_fetch_bank_list_use_case
