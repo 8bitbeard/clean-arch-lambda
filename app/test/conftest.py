@@ -2,10 +2,10 @@ from unittest.mock import patch, Mock
 
 import pytest
 
-from app.src.application.clients.dto.secret_dto import SecretDTO
-from app.src.infrastructure.clients.impl.authorization_client_impl import AuthorizationClientImpl
+from src.application.clients.dto.secret_dto import SecretDTO
 from src.domain.models.bank_model import BankModel
 from src.domain.models.metadata_model import MetadataModel
+from src.infrastructure.clients.impl.authorization_client_impl import AuthorizationClientImpl
 from src.infrastructure.clients.impl.bank_client_impl import BankClientImpl
 from src.infrastructure.clients.impl.secret_client_impl import SecretClientImpl
 from src.infrastructure.clients.impl.storage_client_impl import StorageClientImpl

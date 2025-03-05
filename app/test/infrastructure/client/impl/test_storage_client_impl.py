@@ -1,7 +1,9 @@
-import pytest
 from unittest.mock import patch, Mock
+
+import pytest
 from botocore.exceptions import ClientError
-from app.src.application.exceptions.failed_save_data_exception import FailedSaveDataException
+
+from src.application.exceptions.failed_save_data_exception import FailedSaveDataException
 
 
 @patch('src.infrastructure.clients.impl.storage_client_impl.boto3.client')

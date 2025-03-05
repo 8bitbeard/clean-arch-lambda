@@ -1,7 +1,9 @@
-import pytest
 from unittest.mock import patch
-from app.src.application.clients.dto.secret_dto import SecretDTO
-from app.src.application.exceptions.failed_get_secret_exception import FailedGetSecretException
+
+import pytest
+
+from src.application.clients.dto.secret_dto import SecretDTO
+from src.application.exceptions.failed_get_secret_exception import FailedGetSecretException
 
 
 def test_get_secret_successful(fixture_secret_client):

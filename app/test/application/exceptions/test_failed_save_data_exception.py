@@ -1,7 +1,7 @@
 from http import HTTPStatus
 
-from app.src.application.enums.application_code import ApplicationCode
-from app.src.application.exceptions.failed_save_data_exception import FailedSaveDataException
+from src.application.enums.application_code import ApplicationCode
+from src.application.exceptions.failed_save_data_exception import FailedSaveDataException
 
 
 def test_failed_save_data_exception_with_default_values():

@@ -1,7 +1,7 @@
 from http import HTTPStatus
 
-from app.src.application.enums.application_code import ApplicationCode
-from app.src.application.exceptions.failed_get_token_exception import FailedGetTokenException
+from src.application.enums.application_code import ApplicationCode
+from src.application.exceptions.failed_get_token_exception import FailedGetTokenException
 
 
 def test_failed_get_token_exception_with_default_values():

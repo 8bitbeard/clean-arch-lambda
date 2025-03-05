@@ -3,7 +3,7 @@ import re
 import pytest
 from pydantic import ValidationError
 
-from app.src.domain.models.metadata_model import MetadataModel
+from src.domain.models.metadata_model import MetadataModel
 
 
 def test_create_new_metadata_model_instance_with_default_value():

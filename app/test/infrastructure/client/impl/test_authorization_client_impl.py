@@ -3,9 +3,9 @@ from unittest.mock import Mock, patch
 import pytest
 from requests.exceptions import HTTPError
 
-from app.src.application.exceptions.failed_get_secret_exception import FailedGetSecretException
-from app.src.infrastructure.clients.dto.get_token_response_dto import GetTokenResponseDTO
-from app.src.infrastructure.clients.impl.authorization_client_impl import AuthorizationClientImpl
+from src.application.exceptions.failed_get_secret_exception import FailedGetSecretException
+from src.infrastructure.clients.dto.get_token_response_dto import GetTokenResponseDTO
+from src.infrastructure.clients.impl.authorization_client_impl import AuthorizationClientImpl
 
 
 def test_get_token_successful(fixture_authorization_client, fixture_secret_dto, fixture_get_token_json_response):

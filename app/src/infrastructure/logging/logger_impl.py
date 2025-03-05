@@ -1,4 +1,4 @@
-from app.src.application.logging.logger_interface import LoggerInterface
+from src.application.logging.logger_interface import LoggerInterface
 
 
 class PowertoolsLogger(LoggerInterface):

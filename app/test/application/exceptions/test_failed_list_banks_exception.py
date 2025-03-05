@@ -1,7 +1,7 @@
 from http import HTTPStatus
 
-from app.src.application.enums.application_code import ApplicationCode
-from app.src.application.exceptions.failed_list_banks_exception import FailedListBanksException
+from src.application.enums.application_code import ApplicationCode
+from src.application.exceptions.failed_list_banks_exception import FailedListBanksException
 
 
 def test_failed_list_banks_exception_with_default_values():

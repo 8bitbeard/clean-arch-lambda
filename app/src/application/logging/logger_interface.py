@@ -12,5 +12,5 @@ class LoggerInterface(ABC):
         raise NotImplemented("Method not implemented")
 
     @abstractmethod
-    def error(self, message: str    ) -> None:
+    def error(self, message: str) -> None:
         raise NotImplemented("Method not implemented")

@@ -4,12 +4,12 @@ import boto3
 from botocore.exceptions import ClientError
 from pydantic.v1 import ValidationError
 
-from app.src.application.clients.interface.storage_client_interface import StorageClientInterface
-from app.src.application.exceptions.failed_save_data_exception import FailedSaveDataException
-from app.src.application.logging.logger_interface import LoggerInterface
-from app.src.domain.models.bank_model import BankModel
-from app.src.domain.models.metadata_model import MetadataModel
-from app.src.infrastructure.mappers.dto_mapper import bank_model_list_and_metadata_to_save_data_request_dto
+from src.application.clients.interface.storage_client_interface import StorageClientInterface
+from src.application.exceptions.failed_save_data_exception import FailedSaveDataException
+from src.application.logging.logger_interface import LoggerInterface
+from src.domain.models.bank_model import BankModel
+from src.domain.models.metadata_model import MetadataModel
+from src.infrastructure.mappers.dto_mapper import bank_model_list_and_metadata_to_save_data_request_dto
 
 
 class StorageClientImpl(StorageClientInterface):

@@ -1,7 +1,7 @@
 from http import HTTPStatus
 
-from app.src.application.enums.application_code import ApplicationCode
-from app.src.application.exceptions.failed_get_secret_exception import FailedGetSecretException
+from src.application.enums.application_code import ApplicationCode
+from src.application.exceptions.failed_get_secret_exception import FailedGetSecretException
 
 
 def test_failed_get_secret_exception_with_default_values():

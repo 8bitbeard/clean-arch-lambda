@@ -1,8 +1,8 @@
 from typing import List
 
-from app.src.domain.models.bank_model import BankModel
-from app.src.domain.models.metadata_model import MetadataModel
-from app.src.infrastructure.clients.dto.storage_client_request_dto import StorageClientRequestDTO, MetadataDTO, \
+from src.domain.models.bank_model import BankModel
+from src.domain.models.metadata_model import MetadataModel
+from src.infrastructure.clients.dto.storage_client_request_dto import StorageClientRequestDTO, MetadataDTO, \
     BankItemDTO
 
 

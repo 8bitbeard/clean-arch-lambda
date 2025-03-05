@@ -3,11 +3,11 @@ import os
 import requests
 from pydantic import ValidationError
 
-from app.src.application.clients.dto.secret_dto import SecretDTO
-from app.src.application.clients.interface.authorization_client_interace import AuthorizationClientInterface
-from app.src.application.exceptions.failed_get_secret_exception import FailedGetSecretException
-from app.src.application.logging.logger_interface import LoggerInterface
-from app.src.infrastructure.clients.dto.get_token_response_dto import GetTokenResponseDTO
+from src.application.clients.dto.secret_dto import SecretDTO
+from src.application.clients.interface.authorization_client_interace import AuthorizationClientInterface
+from src.application.exceptions.failed_get_secret_exception import FailedGetSecretException
+from src.application.logging.logger_interface import LoggerInterface
+from src.infrastructure.clients.dto.get_token_response_dto import GetTokenResponseDTO
 
 
 class AuthorizationClientImpl(AuthorizationClientInterface):

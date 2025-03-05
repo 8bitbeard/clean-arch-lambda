@@ -1,12 +1,12 @@
-from app.src.application.clients.interface.authorization_client_interace import AuthorizationClientInterface
-from app.src.application.clients.interface.bank_client_interface import BankClientInterface
-from app.src.application.clients.interface.secret_client_interface import SecretClientInterface
-from app.src.application.clients.interface.storage_client_interface import StorageClientInterface
-from app.src.application.logging.logger_interface import LoggerInterface
-from app.src.application.usecases.interface.fetch_bank_list_interface import (
+from src.application.clients.interface.authorization_client_interace import AuthorizationClientInterface
+from src.application.clients.interface.bank_client_interface import BankClientInterface
+from src.application.clients.interface.secret_client_interface import SecretClientInterface
+from src.application.clients.interface.storage_client_interface import StorageClientInterface
+from src.application.logging.logger_interface import LoggerInterface
+from src.application.usecases.interface.fetch_bank_list_interface import (
     FetchBankListUseCaseInterface,
 )
-from app.src.domain.models.metadata_model import MetadataModel
+from src.domain.models.metadata_model import MetadataModel
 
 
 class FetchBankListUseCaseImpl(FetchBankListUseCaseInterface):

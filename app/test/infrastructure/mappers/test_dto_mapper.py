@@ -3,7 +3,7 @@ from unittest.mock import Mock
 import pytest
 from pydantic import ValidationError
 
-from app.src.infrastructure.clients.dto.storage_client_request_dto import StorageClientRequestDTO, MetadataDTO, \
+from src.infrastructure.clients.dto.storage_client_request_dto import StorageClientRequestDTO, MetadataDTO, \
     BankItemDTO
 from src.infrastructure.mappers.dto_mapper import bank_model_list_and_metadata_to_save_data_request_dto
 

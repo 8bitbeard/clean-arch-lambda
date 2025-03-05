@@ -1,11 +1,11 @@
 import os
 
-from app.src.application.clients.dto.secret_dto import SecretDTO
-from app.src.application.clients.interface.secret_client_interface import SecretClientInterface
-from app.src.application.exceptions.failed_get_secret_exception import (
+from src.application.clients.dto.secret_dto import SecretDTO
+from src.application.clients.interface.secret_client_interface import SecretClientInterface
+from src.application.exceptions.failed_get_secret_exception import (
     FailedGetSecretException,
 )
-from app.src.application.logging.logger_interface import LoggerInterface
+from src.application.logging.logger_interface import LoggerInterface
 
 
 class SecretClientImpl(SecretClientInterface):

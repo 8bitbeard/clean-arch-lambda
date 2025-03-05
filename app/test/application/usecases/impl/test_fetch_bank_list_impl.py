@@ -2,7 +2,7 @@ from unittest.mock import Mock
 
 import pytest
 
-from app.src.application.usecases.impl.fetch_bank_list_impl import FetchBankListUseCaseImpl
+from src.application.usecases.impl.fetch_bank_list_impl import FetchBankListUseCaseImpl
 
 
 def test_secret_client_raises_exception():
@@ -23,6 +23,7 @@ def test_secret_client_raises_exception():
     bank_client.list_banks.assert_not_called()
     storage_client.save_data.assert_not_called()
 
+
 def test_authorization_client_raises_exception():
     logger = Mock()
     secret_client = Mock()
@@ -41,6 +42,7 @@ def test_authorization_client_raises_exception():
     bank_client.list_banks.assert_not_called()
     storage_client.save_data.assert_not_called()
 
+
 def test_bank_client_raises_exception():
     logger = Mock()
     secret_client = Mock()
@@ -58,6 +60,7 @@ def test_bank_client_raises_exception():
     authorization_client.get_token.assert_called_once()
     bank_client.list_banks.assert_called_once()
     storage_client.save_data.assert_not_called()
+
 
 def test_storage_client_raises_exception():
     logger = Mock()

@@ -1,4 +1,4 @@
-from app.src.application.enums.application_code import ApplicationCode
+from src.application.enums.application_code import ApplicationCode
 
 
 def test_bl_storage_failure_value():

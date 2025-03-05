@@ -1,8 +1,10 @@
-import pytest
 from unittest.mock import patch, Mock
+
+import pytest
 from requests.exceptions import HTTPError
-from app.src.application.exceptions.failed_list_banks_exception import FailedListBanksException
-from app.src.infrastructure.clients.dto.list_banks_response_dto import ListBanksResponseDTO
+
+from src.application.exceptions.failed_list_banks_exception import FailedListBanksException
+from src.infrastructure.clients.dto.list_banks_response_dto import ListBanksResponseDTO
 from src.infrastructure.clients.impl.bank_client_impl import BankClientImpl
 
 

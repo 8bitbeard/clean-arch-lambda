@@ -1,13 +1,14 @@
 from http import HTTPStatus
-from app.src.application.enums.application_code import ApplicationCode
+
+from src.application.enums.application_code import ApplicationCode
 
 
 class FailedGetTokenException(Exception):
-     def __init__(
-        self,
-        code: ApplicationCode = ApplicationCode.BL_TOKEN_FAILURE,
-        message: str = "Failed to get authorization token",
-        status_code: int = HTTPStatus.INTERNAL_SERVER_ERROR,
+    def __init__(
+            self,
+            code: ApplicationCode = ApplicationCode.BL_TOKEN_FAILURE,
+            message: str = "Failed to get authorization token",
+            status_code: int = HTTPStatus.INTERNAL_SERVER_ERROR,
     ):
         self.code = code
         self.message = message

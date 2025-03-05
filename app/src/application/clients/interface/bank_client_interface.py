@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from app.src.domain.models.bank_model import BankModel
+from src.domain.models.bank_model import BankModel
 
 
 class BankClientInterface(ABC):

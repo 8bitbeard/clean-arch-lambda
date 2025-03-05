@@ -3,12 +3,12 @@ import os
 import requests
 from pydantic.v1 import ValidationError
 
-from app.src.application.clients.interface.bank_client_interface import BankClientInterface
-from app.src.application.exceptions.failed_list_banks_exception import (
+from src.application.clients.interface.bank_client_interface import BankClientInterface
+from src.application.exceptions.failed_list_banks_exception import (
     FailedListBanksException,
 )
-from app.src.application.logging.logger_interface import LoggerInterface
-from app.src.infrastructure.clients.dto.list_banks_response_dto import (
+from src.application.logging.logger_interface import LoggerInterface
+from src.infrastructure.clients.dto.list_banks_response_dto import (
     ListBanksResponseDTO,
 )
 

@@ -1,4 +1,4 @@
-from app.src.domain.models.bank_model import BankModel
+from src.domain.models.bank_model import BankModel
 
 
 def test_create_new_bank_model_instance():

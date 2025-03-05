@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from app.src.domain.models.bank_model import BankModel
-from app.src.domain.models.metadata_model import MetadataModel
+from src.domain.models.bank_model import BankModel
+from src.domain.models.metadata_model import MetadataModel
 
 
 class StorageClientInterface(ABC):

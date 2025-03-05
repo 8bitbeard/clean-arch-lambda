@@ -6,9 +6,9 @@ from src.infrastructure.clients.impl.authorization_client_impl import Authorizat
 from src.infrastructure.clients.impl.bank_client_impl import BankClientImpl
 from src.infrastructure.clients.impl.secret_client_impl import SecretClientImpl
 from src.infrastructure.clients.impl.storage_client_impl import StorageClientImpl
+from src.infrastructure.entrypoint.dto.lambda_response_dto import LambdaResponseDTO, BodyDTO, DataDTO
 from src.infrastructure.entrypoint.handler.exception_handler import exception_handler
 from src.infrastructure.logging.logger_impl import PowertoolsLogger
-from src.infrastructure.entrypoint.dto.lambda_response_dto import LambdaResponseDTO, BodyDTO, DataDTO
 
 logger = PowertoolsLogger()
 

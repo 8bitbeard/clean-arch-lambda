@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from app.src.application.clients.dto.secret_dto import SecretDTO
+from src.application.clients.dto.secret_dto import SecretDTO
 
 
 class AuthorizationClientInterface(ABC):
